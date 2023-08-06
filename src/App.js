@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import { createContext } from 'react';
 import './App.css';
+import Home6 from "./components/Home";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+export const Context = createContext(null);
+
+function App()  {
+    const users = [
+        {id:1, name: "User 1"},
+        {id:2, name: "User 2"},
+        {id:3, name: "User 3"},
+        {id:4, name: "User 4"}
+    ]
+
+     return (
+        
+<div>
+    <Context.Provider value={{items: users}}>
+        {/* <Home6 users={users} /> */}
+        <Home6/>
+    </Context.Provider>
+        
+        <footer>Footer</footer>
+      
     </div>
-  );
+  )
 }
 
 export default App;
